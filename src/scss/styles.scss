@@ -1,0 +1,213 @@
+//VARIABLES
+    $primary-color: #FF9F1C;
+    $secondary-color: rgba(50,85,127,0.5);
+    $tertiary-color: #FFBF69;
+    $bg-color: #CBF3F0;
+    $dark-color: #0E0E1A;
+    $light-color: #FFFFFF;
+
+    $white: #fff;
+    $ghost: #F7F7F7;
+    $ivory: #F6F6F4;
+    $light-wash: #F7FBFB;
+    $medium-wash: #EFF7F8;
+    $dark-wash: #E6F3F3;
+    $light-warm-gray: #EEEDEE;
+    $dark-warm-gray: #A3ACB0;
+    $cool-gray-1: #C5C5D2;
+    $cool-gray-2: #8E8EA0;
+    $cool-gray-3: #6E6E80;
+    $cool-gray-4: #404452;
+    $light-black: #191927;
+    $medium-black: #0E0E1A;
+    $black: #000;
+
+    //MIXINS
+
+    @mixin for-phone-only {
+        @media (max-width: 599px) { @content; }
+      }
+      @mixin for-tablet-portrait-up {
+        @media (min-width: 600px) { @content; }
+      }
+      @mixin for-tablet-landscape-up {
+        @media (min-width: 900px) { @content; }
+      }
+      @mixin for-desktop-up {
+        @media (min-width: 1200px) { @content; }
+      }
+      @mixin for-big-desktop-up {
+        @media (min-width: 1800px) { @content; }
+      }
+
+
+    //fonts
+    @import url('https://fonts.googleapis.com/css2?family=Lora:wght@400;700&family=Ubuntu:wght@300;400;700&display=swap');
+
+
+    h1{
+        color: $dark-color;
+        font-family: "Ubuntu", sans-serif;  
+        padding: 30px 0 8px;
+        position: relative;
+    }
+
+    h1::before {
+        content: "";
+        position: absolute;
+        left: 20%;
+        bottom: 5px;
+        width: 352px;
+        height: 14px;
+        transform: skew(-12deg) translateX(-50%);
+        background: rgba($primary-color, .5);
+        z-index: -1;
+      }
+
+    h2, h3{
+        font-family: "Ubuntu", sans-serif;  
+    }
+
+    body{
+        // padding: 20px;
+        max-width: 62.5rem;
+        margin-left:auto;
+        margin-right:auto;
+
+        background-color: $light-color;
+        p, ol{
+            font-family: "Lora", sans-serif;
+            font-weight: 400;
+            font-size: 16px;
+        }
+
+        a{
+            text-decoration: none;
+            color: $cool-gray-3;
+            position: relative;
+        }
+    }
+
+    a {
+        text-decoration: none;
+        box-shadow: inset 0 -2px 0 rgba(50,85,127,0.5), 0 2px 0 rgba(50,85,127,0.5);
+        transition: box-shadow .3s;
+        color: inherit;
+        overflow: hidden;
+      }
+      
+      a:hover {
+        box-shadow: inset 0 -30px 0 $secondary-color, 0 2px 0 rgba(50,85,127,0.5);
+        color: $light-color;
+    }
+
+
+    #promptContainer{
+        margin-top:50px;
+        background-color: $light-warm-gray;
+        padding: 15px;
+    
+        @include for-tablet-landscape-up{
+            padding: 15px 30px;
+        }
+
+        h2{
+            margin-top: 0px;
+        }
+
+        #prompt{
+            border: 0px;
+            padding: 10px;
+            margin-right: 10px;
+        }
+    }
+
+    #responseContainer{
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        padding-left: 15px;
+        padding-right: 15px;
+        @include for-tablet-landscape-up{
+            padding-left: 30px;
+            padding-right: 30px;
+        }
+
+        #prompt{
+            width: 100%;
+            @include for-tablet-landscape-up {
+                width: 50%;
+            }
+        }
+
+        #response{
+            width: 100%;
+            @include for-tablet-landscape-up {
+                width: 50%;
+            }
+        }
+
+        li{
+            padding-top: 15px;
+        }
+    }
+    
+    .btn, button{
+        background-color:rgba($primary-color, .5);
+        color: $light-color;
+        font-size: 14px;
+        text-transform: uppercase;
+        font-weight: 500;
+        letter-spacing: 2px;
+        border-radius: 15px;
+        padding: 0.375rem 1.25rem;
+        border: 3px solid rgba($primary-color, .0);
+        margin: 5px;
+        display: inline;
+    }
+
+    #suggestionContainer{
+        padding-left: 15px;
+        padding-right: 15px;
+        @include for-tablet-landscape-up{
+            padding-left: 30px;
+            padding-right: 30px;
+        }
+        #suggestions{
+            list-style: none;
+            @include for-phone-only{
+                padding-left: 0px;
+            }
+    
+            li{
+                font-family: "Lora", sans-serif;
+                display: inline;
+            }
+        }
+
+        button{
+            padding: 0.375rem;
+            text-transform: capitalize;
+            display: inline;
+        }
+    }
+ 
+
+    #footer{
+        margin-top: 50px;
+        padding: 20px;
+        background-color: $ivory;
+
+        img{
+            padding: 10px;
+        }
+    }
+    
+    #nav{
+        padding-left: 15px;
+        padding-right: 15px;
+        @include for-tablet-landscape-up{
+            padding-left: 30px;
+            padding-right: 30px;
+        }
+    }
